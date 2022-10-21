@@ -19,10 +19,10 @@ int main(){
 
     int seed = time(0);
     srand(seed);
-    int secretNum = (rand() % 100 + 1), guess, attempt = 1, maxAttempts, victory = 0, difficulty;
+    int secretNum = (rand() % 100 + 1), guess, attempt = 1, maxAttempts, victory = 0;
     double points=1000;
 
-    level(&difficulty, &maxAttempts);
+    level(&maxAttempts);
 
     for (int i = 1; i <= maxAttempts; i++) {
         printf("Tentativa %d de %d\n", attempt, maxAttempts);
@@ -39,7 +39,7 @@ int main(){
             break;
         }
         else if (bigger) {
-            printf("Seu chute foi bigger que o número secreto.\n\n");
+            printf("Seu chute foi maior que o número secreto.\n\n");
         }
         else {
             printf("Seu chute foi menor que o número secreto.\n\n");
