@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 #include <locale.h>
 #include "level.c"
+#include "attempt.c"
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
@@ -17,44 +16,20 @@ int main(){
     printf("          \\__|_|__/\n");
     printf("\n\n");
 
-    int seed = time(0);
-    srand(seed);
-    int secretNum = (rand() % 100 + 1), guess, attempt = 1, maxAttempts, victory = 0;
+    int atpt = 1, maxAttempts, victory;
     double points=1000;
 
     level(&maxAttempts);
 
-    for (int i = 1; i <= maxAttempts; i++) {
-        printf("Tentativa %d de %d\n", attempt, maxAttempts);
-        printf("Chute um número positivo entre 0 e 100: \n");
-        scanf("%d", &guess);
-        if (guess < 0){
-            printf("Por favor não digite números negativos.\n");
-            continue;
-        }
+    attempt(&atpt, maxAttempts, &victory, &points);
 
-        victory = guess == secretNum;
-        int bigger = guess > secretNum;
-        if (victory) {
-            break;
-        }
-        else if (bigger) {
-            printf("Seu chute foi maior que o número secreto.\n\n");
-        }
-        else {
-            printf("Seu chute foi menor que o número secreto.\n\n");
-        }
-        attempt++;
-        double lostPoints = abs(guess - secretNum) / (double)2;
-        points -= lostPoints;
-    }
     printf("Fim de jogo!\n");
     if (victory){
         printf("\n\n");
         printf("          ..::''''''::..\n");
         printf("        .;''          ``;.\n");
         printf("       ::     ::  ::     ::\n");
-        printf("      ::      ::  ::      ::      Você venceu na %dª tentativa\n", attempt);
+        printf("      ::      ::  ::      ::      Você venceu na %dª tentativa\n", atpt);
         printf("      ::  .:' ::  :: `:.  ::      Total de points: %.1f\n", points);
         printf("      ::   :          :   ::\n");
         printf("       ::  `:.      .:'  ::\n");
