@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
+#include "level.c"
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
@@ -18,27 +19,13 @@ int main(){
 
     int seed = time(0);
     srand(seed);
-    int secretNum = (rand() % 100 + 1), guess, try = 1, tryNum, victory = 0, lvl;
-    double pontos=1000;
+    int secretNum = (rand() % 100 + 1), guess, attempt = 1, maxAttempts, victory = 0, difficulty;
+    double points=1000;
 
-    printf("Qual o nível de dificuldade?\n");
-    printf("1.Fácil 2.Médio 3.Difícil\n\n");
-    printf("Escolha:");
-    scanf("%d", &lvl);
-    switch (lvl) {
-    case 1:
-            tryNum=12;
-            break;
-        case 2:
-            tryNum=9;
-            break;
-        default:
-            tryNum=6;
-        break;
-    }
+    level(&difficulty, &maxAttempts);
 
-    for (int i = 1; i <= tryNum; i++) {
-        printf("Tentativa %d de %d\n", try, tryNum);
+    for (int i = 1; i <= maxAttempts; i++) {
+        printf("Tentativa %d de %d\n", attempt, maxAttempts);
         printf("Chute um número positivo entre 0 e 100: \n");
         scanf("%d", &guess);
         if (guess < 0){
@@ -47,19 +34,19 @@ int main(){
         }
 
         victory = guess == secretNum;
-        int maior = guess > secretNum;
+        int bigger = guess > secretNum;
         if (victory) {
             break;
         }
-        else if (maior) {
-            printf("Seu chute foi maior que o número secreto.\n\n");
+        else if (bigger) {
+            printf("Seu chute foi bigger que o número secreto.\n\n");
         }
         else {
             printf("Seu chute foi menor que o número secreto.\n\n");
         }
-        try++;
-        double pontosPerdidos = abs(guess - secretNum) / (double)2;
-        pontos -= pontosPerdidos;
+        attempt++;
+        double lostPoints = abs(guess - secretNum) / (double)2;
+        points -= lostPoints;
     }
     printf("Fim de jogo!\n");
     if (victory){
@@ -67,8 +54,8 @@ int main(){
         printf("          ..::''''''::..\n");
         printf("        .;''          ``;.\n");
         printf("       ::     ::  ::     ::\n");
-        printf("      ::      ::  ::      ::      Você venceu na %dª tentativa\n", try);
-        printf("      ::  .:' ::  :: `:.  ::      Total de pontos: %.1f\n", pontos);
+        printf("      ::      ::  ::      ::      Você venceu na %dª tentativa\n", attempt);
+        printf("      ::  .:' ::  :: `:.  ::      Total de points: %.1f\n", points);
         printf("      ::   :          :   ::\n");
         printf("       ::  `:.      .:'  ::\n");
         printf("        `;.. ``::::'' ..;'\n");

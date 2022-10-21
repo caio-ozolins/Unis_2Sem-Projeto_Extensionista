@@ -1,0 +1,6 @@
+#ifndef PROJETO_EXTENSIONISTA_2022_2_LEVEL_H
+#define PROJETO_EXTENSIONISTA_2022_2_LEVEL_H
+
+void level(int* difficulty, int* maxAttempts);
+
+#endif //PROJETO_EXTENSIONISTA_2022_2_LEVEL_H
