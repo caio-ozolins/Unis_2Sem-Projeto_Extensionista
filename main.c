@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <locale.h>
-#include "level.c"
-#include "attempt.c"
+#include "adivinhacao/level.c"
+#include "adivinhacao/attempt.c"
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
