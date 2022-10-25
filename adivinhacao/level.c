@@ -1,11 +1,11 @@
-#include "../main.h"
 #include <stdio.h>
 
 void level(int* maxAttempts){
     int difficulty;
-    printf("Qual o nível de dificuldade?\n");
-    printf("1.Fácil 2.Médio 3.Difícil\n\n");
-    printf("Escolha:");
+    printf("+--------------------------+\n");
+    printf(":  1.Easy 2.Medium 3.Hard  :\n");
+    printf("+--------------------------+\n\n");
+    printf("Choose the difficulty level.\n");
     scanf("%d", &difficulty);
     switch (difficulty) {
         case 1:
