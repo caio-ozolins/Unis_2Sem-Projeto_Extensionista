@@ -2,6 +2,7 @@
 #include <locale.h>
 #include "adivinhacao/level.c"
 #include "adivinhacao/attempt.c"
+#include "adivinhacao/ordinal.c"
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
@@ -22,6 +23,8 @@ int main(){
     level(&maxAttempts);
 
     attempt(&atpt, maxAttempts, &victory, &points);
+
+    char *ordinals[] = { "st", "nd", "rd", "th" };
 
     printf("Fim de jogo!\n");
     if (victory){
