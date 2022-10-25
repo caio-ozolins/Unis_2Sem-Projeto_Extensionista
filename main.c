@@ -29,7 +29,7 @@ int main(){
         printf("          ..::''''''::..\n");
         printf("        .;''          ``;.\n");
         printf("       ::     ::  ::     ::\n");
-        printf("      ::      ::  ::      ::      Você venceu na %dª tentativa\n", atpt);
+        printf("      ::      ::  ::      ::      Você venceu na %d%s tentativa\n", atpt, get_ordinal(ordinals, atpt));
         printf("      ::  .:' ::  :: `:.  ::      Total de points: %.1f\n", points);
         printf("      ::   :          :   ::\n");
         printf("       ::  `:.      .:'  ::\n");
