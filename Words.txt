@@ -10,3 +10,8 @@ MAMUTE
 CACHORRO
 JABUTI
 ANEL
+Projeto
+Carro
+Celular
+Baleia
+Lula
