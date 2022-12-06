@@ -23,7 +23,7 @@ void guessingGame(){
     if (victory){
         printf("+=========================+\n");
         printf(":     Congratulations     :\n");
-        printf(": You won on the %d%s try. :\n", atpt, get_ordinal(ordinals, atpt));
+        printf(": You won on the %d%s try. :\n", atpt, get_ordinal(ordinals, atpt))/* Tranforma o número em ordinal em inglês */;
         printf("+=========================+\n");
     } else{
         printf("+==========================+\n");
