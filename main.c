@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Guessing_Game/guessingGame.c"
+#include "main.h"
 
 int main(){
     int game=0;
@@ -13,6 +13,9 @@ int main(){
     switch (game) {
         case 1:
             guessingGame();
+            break;
+        case 2:
+            hangmanGame();
             break;
         default:
             printf("Game not found");

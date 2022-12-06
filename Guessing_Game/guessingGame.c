@@ -1,8 +1,5 @@
 #include "guessingGame.h"
 #include <stdio.h>
-#include "level.c"
-#include "attempt.c"
-#include "ordinal.c"
 
 void guessingGame(){
 
