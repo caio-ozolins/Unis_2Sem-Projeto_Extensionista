@@ -21,7 +21,7 @@ void guessingGame(){
     if (victory){
         printf("+=========================+\n");
         printf(":     Congratulations     :\n");
-        printf(": You won on the %d%s try. :\n", atpt, get_ordinal(ordinals, atpt));
+        printf(": You wonTicTacToe on the %d%s try. :\n", atpt, get_ordinal(ordinals, atpt));
         printf("+=========================+\n");
     } else{
         printf("+==========================+\n");

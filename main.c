@@ -7,6 +7,7 @@ int main(){
     printf("\n\n+====================+\n");
     printf(":  1. Guessing Game  :\n");
     printf(":  2. Hangman Game   :\n");
+    printf(":  3. Tic Tac Toe    :\n");
     printf("+====================+\n\n");
     scanf("%d", &game);
 
@@ -16,6 +17,9 @@ int main(){
             break;
         case 2:
             hangmanGame();
+            break;
+        case 3:
+            ticTacToe();
             break;
         default:
             printf("Game not found");

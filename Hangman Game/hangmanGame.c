@@ -28,7 +28,7 @@ void hangmanGame() {
     if (won(qtyGuesses, secretWord, attempts)){
         printf("+=========================+\n");
         printf(":     Congratulations     :\n");
-        printf(":         You won         :\n");
+        printf(":         You wonTicTacToe         :\n");
         printf("+=========================+\n");
     } else {
         printf("+==========================+\n");
