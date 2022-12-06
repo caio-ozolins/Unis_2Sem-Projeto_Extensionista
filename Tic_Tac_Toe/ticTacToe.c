@@ -13,29 +13,43 @@ int turn = 0; // guarda a quantidade de turnos
 
 void ticTacToe(){
 
+    printf("\n\n");
+    printf("+==========================+\n");
+    printf(":        Welcome to        :\n");
+    printf(":       Tic Tac Toe!       :\n");
+    printf("+==========================+\n");
+    printf("\n\n");
+
     while (!wonTicTacToe() && !tie()) { // loop enquanto ninguem tiver ganhado ou empatado
         char playerChosenTile='0'; // variavel para guardar a escolha do player
 
         printTicTacToe();
-        printf("Choose a tile:");
+        printf("\nChoose a tile:");
         scanf(" %c", &playerChosenTile);
         putInTicTacToe(playerChosenTile, PLAYER);
         turn++;
-        if (wonTicTacToe() != 0){ // Verifica se o player ganhou
+        if (wonTicTacToe() != 0){ // Verifica se o jogador ganhou
             printTicTacToe();
-            printf("You Won!");
+            printf("+=========================+\n");
+            printf(":     Congratulations     :\n");
+            printf(":         You won         :\n");
+            printf("+=========================+\n");
             break;
         }
         if (tie()){ // Verifica se houve empate
             printTicTacToe();
-            printf("It's a Tie!");
+            printf("+==========================+\n");
+            printf(":        It's a Tie        :\n");
+            printf("+==========================+\n");
             break;
         }
         computerTurn(); // Turno do computador
         turn++;
         if (wonTicTacToe() != 0){ // Verifica se o computador ganhou
             printTicTacToe();
-            printf("You Lost!");
+            printf("+==========================+\n");
+            printf(":   You lost, try again.   :\n");
+            printf("+==========================+\n");
             break;
         }
     }
@@ -62,23 +76,17 @@ void putInTicTacToe(char chosenTile, char playerSimbol){ // Coloca o simbolo no 
 }
 
 int wonTicTacToe(){ // Verifica se alguem ganhou
-    int x;
-    if (tic_tac_toe[0][0] == tic_tac_toe[0][1] && tic_tac_toe[0][0] == tic_tac_toe[0][2])
+    if (tic_tac_toe[0][0] == tic_tac_toe[1][1] && tic_tac_toe[0][0] == tic_tac_toe[2][2]
+    || tic_tac_toe[0][1] == tic_tac_toe[1][1] && tic_tac_toe[0][1] == tic_tac_toe[2][1]
+    || tic_tac_toe[0][2] == tic_tac_toe[1][1] && tic_tac_toe[0][2] == tic_tac_toe[2][0]
+    || tic_tac_toe[1][0] == tic_tac_toe[1][1] && tic_tac_toe[1][0] == tic_tac_toe[1][2])
+        return tic_tac_toe[1][1] == PLAYER ? 1 : 2;
+    else if (tic_tac_toe[0][0] == tic_tac_toe[0][1] && tic_tac_toe[0][0] == tic_tac_toe[0][2]
+    || tic_tac_toe[0][0] == tic_tac_toe[1][0] && tic_tac_toe[0][0] == tic_tac_toe[2][0])
         return tic_tac_toe[0][0] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[1][0] == tic_tac_toe[1][1] && tic_tac_toe[1][0] == tic_tac_toe[1][2])
-        return tic_tac_toe[1][0] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[2][0] == tic_tac_toe[2][1] && tic_tac_toe[2][0] == tic_tac_toe[2][2])
-        return tic_tac_toe[2][0] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[0][0] == tic_tac_toe[1][0] && tic_tac_toe[0][0] == tic_tac_toe[2][0])
-        return tic_tac_toe[0][0] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[0][1] == tic_tac_toe[1][1] && tic_tac_toe[0][1] == tic_tac_toe[2][1])
-        return tic_tac_toe[0][1] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[0][2] == tic_tac_toe[1][2] && tic_tac_toe[0][2] == tic_tac_toe[2][2])
-        return tic_tac_toe[0][2] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[0][0] == tic_tac_toe[1][1] && tic_tac_toe[0][0] == tic_tac_toe[2][2])
-        return tic_tac_toe[0][0] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[0][2] == tic_tac_toe[1][1] && tic_tac_toe[0][2] == tic_tac_toe[2][0])
-        return tic_tac_toe[0][2] == PLAYER ? 1 : 2;
+    else if (tic_tac_toe[2][0] == tic_tac_toe[2][1] && tic_tac_toe[2][0] == tic_tac_toe[2][2]
+    || tic_tac_toe[0][2] == tic_tac_toe[1][2] && tic_tac_toe[0][2] == tic_tac_toe[2][2])
+        return tic_tac_toe[2][2] == PLAYER ? 1 : 2;
 
     return 0;
 }
