@@ -1,3 +1,6 @@
+// Autor: David C. Rankin
+// https://stackoverflow.com/a/46139480
+
 char *get_ordinal (char **ordinals, int value)
 {
     value %= 100;  /* normalize values between 0-100 */

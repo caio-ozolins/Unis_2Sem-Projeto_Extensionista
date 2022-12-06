@@ -62,23 +62,17 @@ void putInTicTacToe(char chosenTile, char playerSimbol){ // Coloca o simbolo no 
 }
 
 int wonTicTacToe(){ // Verifica se alguem ganhou
-    int x;
-    if (tic_tac_toe[0][0] == tic_tac_toe[0][1] && tic_tac_toe[0][0] == tic_tac_toe[0][2])
+    if (tic_tac_toe[0][0] == tic_tac_toe[1][1] && tic_tac_toe[0][0] == tic_tac_toe[2][2]
+    || tic_tac_toe[0][1] == tic_tac_toe[1][1] && tic_tac_toe[0][1] == tic_tac_toe[2][1]
+    || tic_tac_toe[0][2] == tic_tac_toe[1][1] && tic_tac_toe[0][2] == tic_tac_toe[2][0]
+    || tic_tac_toe[1][0] == tic_tac_toe[1][1] && tic_tac_toe[1][0] == tic_tac_toe[1][2])
+        return tic_tac_toe[1][1] == PLAYER ? 1 : 2;
+    else if (tic_tac_toe[0][0] == tic_tac_toe[0][1] && tic_tac_toe[0][0] == tic_tac_toe[0][2]
+    || tic_tac_toe[0][0] == tic_tac_toe[1][0] && tic_tac_toe[0][0] == tic_tac_toe[2][0])
         return tic_tac_toe[0][0] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[1][0] == tic_tac_toe[1][1] && tic_tac_toe[1][0] == tic_tac_toe[1][2])
-        return tic_tac_toe[1][0] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[2][0] == tic_tac_toe[2][1] && tic_tac_toe[2][0] == tic_tac_toe[2][2])
-        return tic_tac_toe[2][0] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[0][0] == tic_tac_toe[1][0] && tic_tac_toe[0][0] == tic_tac_toe[2][0])
-        return tic_tac_toe[0][0] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[0][1] == tic_tac_toe[1][1] && tic_tac_toe[0][1] == tic_tac_toe[2][1])
-        return tic_tac_toe[0][1] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[0][2] == tic_tac_toe[1][2] && tic_tac_toe[0][2] == tic_tac_toe[2][2])
-        return tic_tac_toe[0][2] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[0][0] == tic_tac_toe[1][1] && tic_tac_toe[0][0] == tic_tac_toe[2][2])
-        return tic_tac_toe[0][0] == PLAYER ? 1 : 2;
-    else if (tic_tac_toe[0][2] == tic_tac_toe[1][1] && tic_tac_toe[0][2] == tic_tac_toe[2][0])
-        return tic_tac_toe[0][2] == PLAYER ? 1 : 2;
+    else if (tic_tac_toe[2][0] == tic_tac_toe[2][1] && tic_tac_toe[2][0] == tic_tac_toe[2][2]
+    || tic_tac_toe[0][2] == tic_tac_toe[1][2] && tic_tac_toe[0][2] == tic_tac_toe[2][2])
+        return tic_tac_toe[2][2] == PLAYER ? 1 : 2;
 
     return 0;
 }

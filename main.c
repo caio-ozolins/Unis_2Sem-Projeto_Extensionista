@@ -23,6 +23,7 @@ int main(){
             break;
         default:
             printf("Game not found");
+            return 1;
     }
 
     return 0;
