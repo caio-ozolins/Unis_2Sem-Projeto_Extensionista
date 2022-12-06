@@ -12,5 +12,6 @@ void playerAttempt(int* qtyGuesses, char* attempts);
 int won(int qtyGuesses, char* secretWord, char* attempts);
 int wrongGuesses(int qtyGuesses, char* secretWord, char* attempts);
 void strtoupper(char s1[]);
+void printSecretWord(int qtyGuesses, char* secretWord, char* attempts);
 
 #endif //TESTE_HANGMANGAME_H

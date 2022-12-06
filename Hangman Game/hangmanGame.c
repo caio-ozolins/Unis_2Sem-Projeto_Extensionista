@@ -30,11 +30,12 @@ void hangmanGame() {
         printf(":     Congratulations     :\n");
         printf(":         You won         :\n");
         printf("+=========================+\n");
+        printf("The word was %s\n\n", secretWord);
     } else {
         printf("+==========================+\n");
         printf(":   You lost, try again.   :\n");
         printf("+==========================+\n");
-        printf("The word was [%s]\n\n", secretWord);
+        printf("The word was %s\n\n", secretWord);
     }
 
     char x;
@@ -136,17 +137,7 @@ void drawHangman(int qtyGuesses, char* secretWord, char* attempts){
     printf("_|___           \n");
     printf("\n\n");
 
-    // Imprime a palavra secreta
-    for (int i = 0; i < strlen(secretWord); i++) {
-
-        int found = alreadyGuessed(secretWord[i], qtyGuesses, attempts);
-        if(found){
-            printf("%c ", secretWord[i]);
-        } else {
-            printf("_ ");
-        }
-    }
-    printf("\n");
+    printSecretWord(qtyGuesses, secretWord, attempts);
 }
 
 int hanged(int qtyGuesses, char* secretWord, char* attempts){// Verifica se o jogador foi "enforcado"
@@ -193,4 +184,17 @@ int wrongGuesses(int qtyGuesses, char* secretWord, char* attempts){ // Verifica 
         if (!equal){mistakes++;}
     }
     return mistakes;
+}
+
+void printSecretWord(int qtyGuesses, char* secretWord, char* attempts){ // Imprime a palavra secreta
+    for (int i = 0; i < strlen(secretWord); i++) {
+
+        int found = alreadyGuessed(secretWord[i], qtyGuesses, attempts);
+        if(found){
+            printf("%c ", secretWord[i]);
+        } else {
+            printf("_ ");
+        }
+    }
+    printf("\n");
 }
