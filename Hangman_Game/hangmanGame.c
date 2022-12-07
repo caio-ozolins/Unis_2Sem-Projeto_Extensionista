@@ -59,7 +59,7 @@ void addWord(){ // Adiciona uma nova palavra no banco de dados
 
     // Abre o arquivo com a lista de palavras
     FILE* f;
-    f = fopen("Words.txt", "r+");
+    f = fopen("Hangman_Game\\Words.txt", "r+");
 
     // Imprime erro caso o arquivo não abra
     if (f == 0){
@@ -98,7 +98,7 @@ void chooseWord(char* secretWord){
 
     // Abre o arquivo com a lista de palavras
     FILE* f;
-    f = fopen("Words.txt", "r");
+    f = fopen("Hangman_Game\\Words.txt", "r");
 
     // Imprime erro caso o arquivo não abra
     if (f == 0){
